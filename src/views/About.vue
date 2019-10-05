@@ -1,8 +1,18 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="about my-5">
+    <About/>
   </div>
 </template>
+
+<script>
+import About from '@/pages/About';
+
+export default {
+  components: {
+    About
+  },
+};
+</script>
 
 
 
