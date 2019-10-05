@@ -1,0 +1,39 @@
+GET https://jsonplaceholder.typicode.com/posts
+
+###
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "id":1,
+    "title": "Test",
+    "description": "Tinnakorn"
+}
+
+###
+
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "id":101,
+    "title": "Test pUT",
+    "description": "Tinnakorn"
+}
+###
+
+PATCH https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "id":101,
+    "title": "Test pATCH",
+    "description": "Tinnakorn"
+}
+
+###
+
+DELETE https://jsonplaceholder.typicode.com/posts/1
