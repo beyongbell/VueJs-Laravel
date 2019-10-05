@@ -22,6 +22,7 @@
           <br>please join our online
           <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
         </p>
+         <router-view></router-view>
       </v-flex>
 
       <v-flex
