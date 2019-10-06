@@ -16,21 +16,21 @@
 
     <div class="extra-container">
       <div>
-        <label><input type="checkbox" :checked="!anyRemaining" @change="checkAllTodos"> Check All</label>
+        <v-switch v-model="checkbox" label="Check All" @change="checkAllTodos"></v-switch>
       </div>
       <div>{{ remaining }} items left</div>
     </div>
 
     <div class="extra-container">
       <div>
-        <button :class="{ active: filter == 'all' }" @click="filter = 'all'">All</button>
-        <button :class="{ active: filter == 'active' }" @click="filter = 'active'">Active</button>
-        <button :class="{ active: filter == 'completed' }" @click="filter = 'completed'">Completed</button>
+        <v-btn :class="{ active: filter == 'all' }" @click="filter = 'all'" class="mx-1">All</v-btn>
+        <v-btn :class="{ active: filter == 'active' }" @click="filter = 'active'" color="primary" class="mx-1">Active</v-btn>
+        <v-btn :class="{ active: filter == 'completed' }" @click="filter = 'completed'" color="success" class="mx-1">Completed</v-btn>
       </div>
 
       <div>
         <transition name="fade">
-        <button v-if="showClearCompletedButton" @click="clearCompleted">Clear Completed</button>
+          <button v-if="showClearCompletedButton" @click="clearCompleted">Clear Completed</button>
         </transition>
       </div>
     </div>
@@ -49,7 +49,7 @@ export default {
   data () {
     return {
       show: false,
-      checkbox1: false,
+      checkbox: false,
       newTodo: '',
       idForTodo: 3,
       beforeEditCache: '',
@@ -130,8 +130,7 @@ export default {
       this.todos.splice(index, 1)
     },
     checkAllTodos() {
-      console.log(event.target.checked)
-      this.todos.forEach((todo) => todo.completed = event.target.checked)
+      this.todos.forEach((todo) => todo.completed = this.checkbox)
     },
     clearCompleted() {
       this.todos = this.todos.filter(todo => !todo.completed)
